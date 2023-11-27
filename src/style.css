@@ -14,6 +14,10 @@ h2{
 }
 
 
+/*  ================================================================================ */
+/*  section.1 */
+/*  ================================================================================ */
+
 #section1 {
   margin-top: 20px;
   display: flex;
@@ -39,11 +43,12 @@ h2{
   /*   background: blue; */
 }
 
-#control1{
+#control1 {
+  width: 30%;
+}
+
+.control1{
   display: flex;
   margin-left: 30px;
-  width: 30%;
-  /*   border: 1px solid pink; */
-  /*   justify-content: space-between; */
-  align-items: flex-start;
+  justify-content: space-between;
 }
