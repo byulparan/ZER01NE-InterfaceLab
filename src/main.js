@@ -65,8 +65,6 @@ document.querySelector("#padPanSpeed")
     }
   })
 
-
-
 let s1 = function( s ) {
   s.setup = function() {
     let parent = document.querySelector('#canvas1');
@@ -77,19 +75,23 @@ let s1 = function( s ) {
   let pan = 0.0;
   s.draw = function() {
     s.background(255);
+    s.translate(s.width*0.5, s.height*0.5);
+    s.noFill();
+    s.stroke(0);
+    s.line(-150, 0, 150, 0);
+    s.line( 0, -150, 0, 150);
+
+    
     if(start) {
       csound.getControlChannel("gkPadPan").then(v => {
 	pan = v;
       });
       let time = s.millis() * 0.001;
-      s.noFill();
-      s.stroke(0);
-      s.push();
-      s.translate(s.width*0.5, s.height*0.5);
+      s.noStroke();
+      s.fill(255, 0, 0);
       s.rotate(pan);
-      s.translate(0, 100);
-      s.ellipse(0, 0, 100,100);
-      s.pop();
+      s.translate(0, 120);
+      s.ellipse(0, 0, 20, 20);
     }  
   }
 };
