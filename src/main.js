@@ -104,8 +104,8 @@ let s1 = function( s ) {
       s.noStroke();
       s.fill(255, 0, 0, document.querySelector("#padvol").value * 255 * 2);
       s.rotate(pan);
-      s.translate(0, 120);
-      s.ellipse(0, 0, 20, 20);
+      s.translate(0, s.height*0.5);
+      s.ellipse(0, 0, 10, 10);
     }  
   }
 };
@@ -201,7 +201,7 @@ let s2 = function( s ) {
     canvas.parent(parent);
     s.angleMode(s.DEGREES);
     s.textAlign(s.CENTER);
-    s.textSize(20);
+    s.textSize(15);
   }
   let pan = 0.0;
   s.draw = function() {
@@ -211,7 +211,6 @@ let s2 = function( s ) {
     s.stroke(0);
     s.line(-150, 0, 150, 0);
     s.line( 0, -150, 0, 150);
-
     if(start) {
       if(!(seaSoundGainNode && birdSoundGainNode && rainSoundGainNode)) {
 	if(Math.floor(s.millis() / 500.0) % 2 == 0) {
@@ -226,22 +225,29 @@ let s2 = function( s ) {
       s.noStroke();
       s.fill(0, 0, 255, document.querySelector("#seaSoundVol").value * 255 * 2);
       s.rotate(-45.0);
-      s.translate(0, 140);
-      s.ellipse(0, 0, 20, 20);
+      s.translate(0, s.height*0.5);
+      s.ellipse(0, 0, 10, 10);
       s.pop();
       s.push();
       s.noStroke();
       s.fill(0, 200, 0, document.querySelector("#birdSoundVol").value * 255 * 2);
       s.rotate(45.0);
-      s.translate(0, 140);
-      s.ellipse(0, 0, 20, 20);
+      s.translate(0, s.height*0.5);
+      s.ellipse(0, 0, 10, 10);
       s.pop();
       s.push();
       s.noStroke();
       s.fill(135, 206, 235, document.querySelector("#rainSoundVol").value * 255 * 2);
-      s.translate(0, -100);
-      s.ellipse(-100, 0, 20, 20);
-      s.ellipse( 100, 0, 20, 20);
+      s.push();
+      s.rotate(135.0);
+      s.translate(0, s.height*0.5);
+      s.ellipse(0, 0, 10, 10);
+      s.pop();
+      s.push();
+      s.rotate(-135.0);
+      s.translate(0, s.height*0.5);
+      s.ellipse(0, 0, 10, 10);
+      s.pop();
       s.pop();
 
     }  
