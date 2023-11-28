@@ -82,7 +82,7 @@ document.querySelector("#padPanSpeed")
 let s1 = function( s ) {
   s.setup = function() {
     let parent = document.querySelector('#canvas1');
-    let canvas = s.createCanvas(parent.clientWidth, parent.clientHeight);
+    let canvas = s.createCanvas(parent.clientWidth, parent.clientWidth);
     canvas.parent(parent);
     s.angleMode(s.DEGREES);
   }
@@ -197,7 +197,7 @@ document.querySelector("#rainSoundVol")
 let s2 = function( s ) {
   s.setup = function() {
     let parent = document.querySelector('#canvas2');
-    let canvas = s.createCanvas(parent.clientWidth, parent.clientHeight);
+    let canvas = s.createCanvas(parent.clientWidth, parent.clientWidth);
     canvas.parent(parent);
     s.angleMode(s.DEGREES);
     s.textAlign(s.CENTER);
