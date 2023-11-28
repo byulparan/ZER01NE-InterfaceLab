@@ -24,7 +24,7 @@ let csound;
 async function init() {
   if(!initialized) {
     audioContext = new AudioContext();
-    await loadAmbient();
+    
     csound = await Csound({
       audioContext: audioContext,
       inputChannelCount: 0
@@ -33,6 +33,8 @@ async function init() {
     await csound.compileCsdText(csoundCode);
     await csound.start();
 
+    loadAmbient();
+    
     initialized = true;
   }
 }
@@ -122,41 +124,51 @@ let seaSoundGainNode = false;
 let birdSoundGainNode = false;
 let rainSoundGainNode = false;
 
-async function loadAmbient() {
-  let buffer = await fetch(seaSound);
-  buffer = await buffer.arrayBuffer();
-  buffer = await audioContext.decodeAudioData(buffer);
-  let seaBufferSource = audioContext.createBufferSource();
-  seaBufferSource.buffer = buffer;
-  seaBufferSource.loop = true;
-  seaSoundGainNode = audioContext.createGain();
-  seaSoundGainNode.gain.value = 0.0;
-  seaBufferSource.connect(seaSoundGainNode).connect(audioContext.destination);
-  seaBufferSource.start();
+function loadAmbient() {
+  fetch(seaSound)
+    .then(response => response.arrayBuffer())
+    .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
+    .then(buffer => {
+      let seaBufferSource = audioContext.createBufferSource();
+      seaBufferSource.buffer = buffer;
+      seaBufferSource.loop = true;
+      seaSoundGainNode = audioContext.createGain();
+      seaSoundGainNode.gain.value = 0.0;
+      seaBufferSource.connect(seaSoundGainNode).connect(audioContext.destination);
+      seaBufferSource.start();
+      document.querySelector('#seaSoundVol').disabled = false;
+    });
 
-  buffer = await fetch(birdSound);
-  buffer = await buffer.arrayBuffer();
-  buffer = await audioContext.decodeAudioData(buffer);
-  let birdBufferSource = audioContext.createBufferSource();
-  birdBufferSource.buffer = buffer;
-  birdBufferSource.loop = true;
-  birdSoundGainNode = audioContext.createGain();
-  birdSoundGainNode.gain.value = 0.0;
-  birdBufferSource.connect(birdSoundGainNode).connect(audioContext.destination);
-  birdBufferSource.start();
 
-  buffer = await fetch(rainSound);
-  buffer = await buffer.arrayBuffer();
-  buffer = await audioContext.decodeAudioData(buffer);
-  let rainBufferSource = audioContext.createBufferSource();
-  rainBufferSource.buffer = buffer;
-  rainBufferSource.loop = true;
-  rainSoundGainNode = audioContext.createGain();
-  rainSoundGainNode.gain.value = 0.0;
-  rainBufferSource.connect(rainSoundGainNode).connect(audioContext.destination);
-  rainBufferSource.start();
+  fetch(birdSound)
+    .then(response => response.arrayBuffer())
+    .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
+    .then(buffer => {
+      let birdBufferSource = audioContext.createBufferSource();
+      birdBufferSource.buffer = buffer;
+      birdBufferSource.loop = true;
+      birdSoundGainNode = audioContext.createGain();
+      birdSoundGainNode.gain.value = 0.0;
+      birdBufferSource.connect(birdSoundGainNode).connect(audioContext.destination);
+      birdBufferSource.start();
+      document.querySelector('#birdSoundVol').disabled = false;
+    });
+
+  
+  fetch(rainSound)
+    .then(response => response.arrayBuffer())
+    .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
+    .then(buffer => {
+      let rainBufferSource = audioContext.createBufferSource();
+      rainBufferSource.buffer = buffer;
+      rainBufferSource.loop = true;
+      rainSoundGainNode = audioContext.createGain();
+      rainSoundGainNode.gain.value = 0.0;
+      rainBufferSource.connect(rainSoundGainNode).connect(audioContext.destination);
+      rainBufferSource.start();
+      document.querySelector('#rainSoundVol').disabled = false;
+    });
 }
-
 
 document.querySelector("#seaSoundVol")
   .addEventListener("input", (e) => {
