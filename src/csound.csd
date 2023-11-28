@@ -30,23 +30,19 @@ schedule "reverb", 0, -1
 
 
 gkPadPan init 0
-gkPadPan chnexport "gkPadPan", 2, 0, i(gkPadPan)
+gkPadPan chnexport "gkPadPan", 2, 0
 gkPadPanSpeed init 0.1
-gkPadPanSpeed chnexport "gkPadPanSpeed", 2, 0, i(gkPadPanSpeed)
+gkPadPanSpeed chnexport "gkPadPanSpeed", 2, 2, i(gkPadPanSpeed), 0, 10.0
 gkPadVol init 0
-gkPadVol chnexport "gkPadVol", 1, 0, i(gkPadVol)
-gkPadReverb init 0.0
-gkPadReverb chnexport "gkPadReverb", 1, 0, i(gkPadReverb)
+gkPadVol chnexport "gkPadVol", 1, 0
+gkPadReverb init 0
+gkPadReverb chnexport "gkPadReverb", 1, 0
 
 
 
 ;; ================================================================================
 ;; Synthesizer
 ;; ================================================================================
-
-instr clock_off
-  turnoff2 1, 0, 0
-endin
 
 instr 1
   ktrig metro gkTempo
@@ -57,6 +53,12 @@ instr 1
   endif
   gkCount += 0.1 * gkPadPanSpeed
 endin
+
+
+instr clock_off
+  turnoff2 1, 0, 0
+endin
+
 
 instr schedule
   icount = p4
