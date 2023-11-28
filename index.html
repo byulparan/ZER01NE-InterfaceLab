@@ -12,21 +12,40 @@
     <p> 본 사이트는 2023 제로원 인터페이스랩의 연구 후원으로 제작되었습니다 </p>
     <hr/>
     <input id='start' type='button'/>
-    <div id='section1'>
-      <div id='description1'> Bformat</div>
-      <div id='presentation1'>
-	<div id='canvas1'></div>
-	<div id='label1'>
+    
+    <div id='section1' class='section'>
+      <div class='description'> Bformat</div>
+      <div class='presentation'>
+	<div id='canvas1' class='canvas'></div>
+	<div class='label'>
 	  <label> volume: </label>
 	  <label> reverb: </label>
 	  <label> panSpeed: </label>
 	</div>
-	<div id='control1'>
+	<div class='control'>
 	  <input id='padvol' type='range' min="0.0" max="1" step="0.01" value="0.0"  />
 	  <input id='padreverb' type='range' min="0.0" max="1" step="0.01" value="0.0"  />
 	  <input id='padPanSpeed' type='range' min="0.0" max="1" step="0.01" value="0.1"  />
 	</div>
       </div>
     </div>
+    
+    <div id='section2' class='section'>
+      <div class='description'> Dolby Atmos </div>
+      <div class='presentation'>
+	<div id='canvas2' class='canvas'></div>
+	<div class='label'>
+	  <label> seaVolume: </label>
+	  <label> birdVolume: </label>
+	  <label> rainVolume: </label>
+	</div>
+	<div class='control'>
+	  <input id='seaSoundVol' type='range' min="0.0" max="1" step="0.01" value="0.0"  />
+	  <input id='birdSoundVol' type='range' min="0.0" max="1" step="0.01" value="0.0"  />
+	  <input id='rainSoundVol' type='range' min="0.0" max="1" step="0.01" value="0.0"  />
+	</div>
+      </div>
+    </div>
+    
   </body>
 </html>

@@ -3,6 +3,10 @@ body{
   background: black;
 }
 
+h1 {
+  font-size: 50px;
+}
+
 
 h2{
   font-size: 16px;
@@ -18,11 +22,11 @@ h2{
 /*  section.1 */
 /*  ================================================================================ */
 
-#section1 {
+.section {
   margin-top: 40px;
 }
 
-#presentation1 {
+.presentation {
   display: flex;
   flex-direction: row;
   margin-top: 10px;
@@ -32,21 +36,22 @@ h2{
 }
 
 
-#canvas1 {
+.canvas {
   width: 300px;
   height: 100%;
 }
 
-#label1 {
+.label {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-end;
   margin-left: 20px;
+  width: 15%;
   height: 50%;
 }
 
-#control1 {
+.control {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
