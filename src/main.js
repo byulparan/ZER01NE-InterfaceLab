@@ -200,6 +200,8 @@ let s2 = function( s ) {
     let canvas = s.createCanvas(parent.clientWidth, parent.clientHeight);
     canvas.parent(parent);
     s.angleMode(s.DEGREES);
+    s.textAlign(s.CENTER);
+    s.textSize(20);
   }
   let pan = 0.0;
   s.draw = function() {
@@ -210,8 +212,16 @@ let s2 = function( s ) {
     s.line(-150, 0, 150, 0);
     s.line( 0, -150, 0, 150);
 
-    
     if(start) {
+      if(!(seaSoundGainNode && birdSoundGainNode && rainSoundGainNode)) {
+	if(Math.floor(s.millis() / 500.0) % 2 == 0) {
+	  s.push();
+	  s.noStroke();
+	  s.fill(255,0,0);
+	  s.text("Resources Loading..", 0,0);
+	  s.pop();
+	}
+      }
       s.push();
       s.noStroke();
       s.fill(0, 0, 255, document.querySelector("#seaSoundVol").value * 255 * 2);
