@@ -24,6 +24,7 @@ let csound;
 async function init() {
   if(!initialized) {
     audioContext = new AudioContext();
+    await loadAmbient();
     csound = await Csound({
       audioContext: audioContext,
       inputChannelCount: 0
@@ -31,7 +32,7 @@ async function init() {
 
     await csound.compileCsdText(csoundCode);
     await csound.start();
-    await loadAmbient();
+
     initialized = true;
   }
 }
