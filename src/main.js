@@ -173,21 +173,21 @@ function loadAmbient() {
 document.querySelector("#seaSoundVol")
   .addEventListener("input", (e) => {
     if(initialized) {
-      seaSoundGainNode.gain.value = e.target.value;
+      seaSoundGainNode.gain.value = e.target.value * 0.1;
     }
   })
 
 document.querySelector("#birdSoundVol")
   .addEventListener("input", (e) => {
     if(initialized) {
-      birdSoundGainNode.gain.value = e.target.value;
+      birdSoundGainNode.gain.value = e.target.value * 0.1;
     }
   })
 
 document.querySelector("#rainSoundVol")
   .addEventListener("input", (e) => {
     if(initialized) {
-      rainSoundGainNode.gain.value = e.target.value;
+      rainSoundGainNode.gain.value = e.target.value * 0.1;
     }
   })
 
@@ -255,6 +255,170 @@ let s2 = function( s ) {
 };
 
 new p5(s2);
+
+
+
+// ================================================================================
+// section.3 - Organ
+// ================================================================================
+
+
+document.querySelector("#organSoundVol")
+  .addEventListener("input", (e) => {
+    if(initialized) {
+      csound.setControlChannel("gkOrganVol", e.target.value);
+    }
+  })
+
+document.querySelector("#organAzimuth")
+  .addEventListener("input", (e) => {
+    if(initialized) {
+      csound.setControlChannel("gkOrganAzimuth", e.target.value);
+    }
+  })
+
+document.querySelector("#organAltitude")
+  .addEventListener("input", (e) => {
+    if(initialized) {
+      csound.setControlChannel("gkOrganAltitude", e.target.value);
+    }
+  })
+
+
+
+
+let s3 = function( s ) {
+  s.setup = function() {
+    let parent = document.querySelector('#canvas3');
+    let canvas = s.createCanvas(parent.clientWidth, parent.clientWidth);
+    canvas.parent(parent);
+    s.angleMode(s.DEGREES);
+    s.textAlign(s.CENTER);
+    s.textSize(15);
+  }
+  let pan = 0.0;
+  s.draw = function() {
+    s.background(255);
+    s.translate(s.width*0.5, s.height*0.5);
+    s.noFill();
+    s.stroke(0);
+    s.line(-150, 0, 150, 0);
+    s.line( 0, -150, 0, 150);
+    if(start) {
+
+    }  
+  }
+};
+
+new p5(s3);
+
+
+// ================================================================================
+// section.4 - Bell
+// ================================================================================
+
+document.querySelector("#bellSoundVol")
+  .addEventListener("input", (e) => {
+    if(initialized) {
+      csound.setControlChannel("gkBellVol", e.target.value);
+    }
+  })
+
+document.querySelector("#bellAzimuth")
+  .addEventListener("input", (e) => {
+    if(initialized) {
+      csound.setControlChannel("gkBellAzimuth", e.target.value);
+    }
+  })
+
+document.querySelector("#bellAltitude")
+  .addEventListener("input", (e) => {
+    if(initialized) {
+      csound.setControlChannel("gkBellAltitude", e.target.value);
+    }
+  })
+
+
+
+
+let s4 = function( s ) {
+  s.setup = function() {
+    let parent = document.querySelector('#canvas4');
+    let canvas = s.createCanvas(parent.clientWidth, parent.clientWidth);
+    canvas.parent(parent);
+    s.angleMode(s.DEGREES);
+    s.textAlign(s.CENTER);
+    s.textSize(15);
+  }
+  let pan = 0.0;
+  s.draw = function() {
+    s.background(255);
+    s.translate(s.width*0.5, s.height*0.5);
+    s.noFill();
+    s.stroke(0);
+    s.line(-150, 0, 150, 0);
+    s.line( 0, -150, 0, 150);
+    if(start) {
+
+    }  
+  }
+};
+
+new p5(s4);
+
+
+// ================================================================================
+// section.5 - Rhythms
+// ================================================================================
+
+document.querySelector("#bassSoundVol")
+  .addEventListener("input", (e) => {
+    if(initialized) {
+      csound.setControlChannel("gkBassVol", e.target.value);
+    }
+  })
+
+document.querySelector("#noiseSoundVol")
+  .addEventListener("input", (e) => {
+    if(initialized) {
+      csound.setControlChannel("gkNoiseVol", e.target.value);
+    }
+  })
+
+document.querySelector("#percSoundVol")
+  .addEventListener("input", (e) => {
+    if(initialized) {
+      csound.setControlChannel("gkPercVol", e.target.value);
+    }
+  })
+
+
+
+
+let s5 = function( s ) {
+  s.setup = function() {
+    let parent = document.querySelector('#canvas5');
+    let canvas = s.createCanvas(parent.clientWidth, parent.clientWidth);
+    canvas.parent(parent);
+    s.angleMode(s.DEGREES);
+    s.textAlign(s.CENTER);
+    s.textSize(15);
+  }
+  let pan = 0.0;
+  s.draw = function() {
+    s.background(255);
+    s.translate(s.width*0.5, s.height*0.5);
+    s.noFill();
+    s.stroke(0);
+    s.line(-150, 0, 150, 0);
+    s.line( 0, -150, 0, 150);
+    if(start) {
+
+    }  
+  }
+};
+
+new p5(s5);
 
 
 

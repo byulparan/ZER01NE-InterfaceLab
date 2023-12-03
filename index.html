@@ -18,9 +18,9 @@
       <div class='presentation'>
 	<div id='canvas1' class='canvas'></div>
 	<div class='label'>
-	  <label> volume: </label>
-	  <label> reverb: </label>
-	  <label> panSpeed: </label>
+	  <label> Volume: </label>
+	  <label> Reverb: </label>
+	  <label> PanSpeed: </label>
 	</div>
 	<div class='control'>
 	  <input id='padvol' class='slider' type='range' min="0.0" max="1" step="0.01" value="0.0"  />
@@ -34,9 +34,9 @@
       <div class='presentation'>
 	<div id='canvas2' class='canvas'></div>
 	<div class='label'>
-	  <label> seaVolume: </label>
-	  <label> birdVolume: </label>
-	  <label> rainVolume: </label>
+	  <label> SeaVolume: </label>
+	  <label> BirdVolume: </label>
+	  <label> RainVolume: </label>
 	</div>
 	<div class='control'>
 	  <input id='seaSoundVol' class='slider' type='range' min="0.0" max="1" step="0.01" value="0.0" disabled  />
@@ -45,6 +45,59 @@
 	</div>
       </div>
     </div>
+
+    <div id='section3' class='section'>
+      <div class='description'> Organ </div>
+      <div class='presentation'>
+	<div id='canvas3' class='canvas'></div>
+	<div class='label'>
+	  <label> volume: </label>
+	  <label> Azimuth: </label>
+	  <label> Altitude: </label>
+	</div>
+	<div class='control'>
+	  <input id='organSoundVol' class='slider' type='range' min="0.0" max="1" step="0.01" value="0.0" />
+	  <input id='organAzimuth' class='slider' type='range' min="0" max="360" step="1" value="0.0" />
+	  <input id='organAltitude' class='slider' type='range' min="0" max="360" step="1" value="0.0" />
+	</div>
+      </div>
+    </div>
+    
+    <div id='section4' class='section'>
+      <div class='description'> Bell </div>
+      <div class='presentation'>
+	<div id='canvas4' class='canvas'></div>
+	<div class='label'>
+	  <label> volume: </label>
+	  <label> Azimuth: </label>
+	  <label> Altitude: </label>
+	</div>
+	<div class='control'>
+	  <input id='bellSoundVol' class='slider' type='range' min="0.0" max="1" step="0.01" value="0.0" />
+	  <input id='bellAzimuth' class='slider' type='range' min="0" max="360" step="1" value="0.0" />
+	  <input id='bellAltitude' class='slider' type='range' min="0" max="360" step="1" value="0.0" />
+	</div>
+      </div>
+    </div>
+
+    <div id='section5' class='section'>
+      <div class='description'> Rhythms </div>
+      <div class='presentation'>
+	<div id='canvas5' class='canvas'></div>
+	<div class='label'>
+	  <label> BassVolume: </label>
+	  <label> NoiseVolume: </label>
+	  <label> PercVolume: </label>
+	</div>
+	<div class='control'>
+	  <input id='bassSoundVol' class='slider' type='range' min="0.0" max="1" step="0.01" value="0.0" />
+	  <input id='noiseSoundVol' class='slider' type='range' min="0.0" max="1" step="0.01" value="0.0" />
+	  <input id='percSoundVol' class='slider' type='range' min="0" max="1" step="0.01" value="0.0" />
+	</div>
+      </div>
+    </div>
+
+
     
   </body>
 </html>
