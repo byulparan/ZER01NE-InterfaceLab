@@ -13,7 +13,7 @@ import rainSound from './resources/rain-atmos.mp3?url';
 // Global Initialization
 // ================================================================================
 
-document.querySelector('#start').value = 'START - Please Use Headphone';
+document.querySelector('#start').textContent = 'CLICK TO START - Please Use Headphone';
 
 let initialized = false;
 let start = false;
@@ -44,10 +44,10 @@ document.querySelector('#start')
     await init();
     if(!start) {
       await csound.evalCode('schedule 1, 0, -1');
-      e.target.value = 'STOP';
+      e.target.textContent = 'STOP';
     } else {
       await csound.evalCode('schedule "clock_off", 0, 0.1');
-      e.target.value = 'START - Please Use Headphone';
+      e.target.textContent = 'CLICK TO START - Please Use Headphone';
     }
     start = !start;
   })
@@ -104,8 +104,8 @@ let s1 = function( s ) {
       s.noStroke();
       s.fill(255, 0, 0, document.querySelector("#padvol").value * 255 * 2);
       s.rotate(pan);
-      s.translate(0, s.height*0.5);
-      s.ellipse(0, 0, 10, 10);
+      s.translate(0, s.height*0.45);
+      s.ellipse(0, 0, s.width*0.05, s.width*0.05);
     }  
   }
 };
