@@ -13,7 +13,7 @@ import rainSound from './resources/rain-atmos.mp3?url';
 // Global Initialization
 // ================================================================================
 
-document.querySelector('#start').textContent = 'CLICK TO START - Please Use Headphone';
+document.querySelector('#start').value = 'CLICK TO START - Please Use Headphone';
 
 let initialized = false;
 let start = false;
@@ -44,10 +44,10 @@ document.querySelector('#start')
     await init();
     if(!start) {
       await csound.evalCode('schedule 1, 0, -1');
-      e.target.textContent = 'STOP';
+      e.target.value = 'STOP';
     } else {
       await csound.evalCode('schedule "clock_off", 0, 0.1');
-      e.target.textContent = 'CLICK TO START - Please Use Headphone';
+      e.target.value = 'CLICK TO START - Please Use Headphone';
     }
     start = !start;
   })
