@@ -82,7 +82,8 @@ document.querySelector("#padPanSpeed")
 let s1 = function( s ) {
   s.setup = function() {
     let parent = document.querySelector('#canvas1');
-    let canvas = s.createCanvas(parent.clientWidth, parent.clientWidth);
+    let sz = Math.min(parent.clientWidth, parent.clientHeight);
+    let canvas = s.createCanvas(sz, sz);
     canvas.parent(parent);
     s.angleMode(s.DEGREES);
   }
@@ -197,7 +198,8 @@ document.querySelector("#rainSoundVol")
 let s2 = function( s ) {
   s.setup = function() {
     let parent = document.querySelector('#canvas2');
-    let canvas = s.createCanvas(parent.clientWidth, parent.clientWidth);
+    let sz = Math.min(parent.clientWidth, parent.clientHeight);
+    let canvas = s.createCanvas(sz, sz);
     canvas.parent(parent);
     s.angleMode(s.DEGREES);
     s.textAlign(s.CENTER);
@@ -290,7 +292,8 @@ document.querySelector("#organAltitude")
 let s3 = function( s ) {
   s.setup = function() {
     let parent = document.querySelector('#canvas3');
-    let canvas = s.createCanvas(parent.clientWidth, parent.clientWidth);
+    let sz = Math.min(parent.clientWidth, parent.clientHeight);
+    let canvas = s.createCanvas(sz, sz);
     canvas.parent(parent);
     s.angleMode(s.DEGREES);
     s.textAlign(s.CENTER);
@@ -344,7 +347,8 @@ document.querySelector("#bellAltitude")
 let s4 = function( s ) {
   s.setup = function() {
     let parent = document.querySelector('#canvas4');
-    let canvas = s.createCanvas(parent.clientWidth, parent.clientWidth);
+    let sz = Math.min(parent.clientWidth, parent.clientHeight);
+    let canvas = s.createCanvas(sz, sz);
     canvas.parent(parent);
     s.angleMode(s.DEGREES);
     s.textAlign(s.CENTER);
@@ -398,7 +402,8 @@ document.querySelector("#percSoundVol")
 let s5 = function( s ) {
   s.setup = function() {
     let parent = document.querySelector('#canvas5');
-    let canvas = s.createCanvas(parent.clientWidth, parent.clientWidth);
+    let sz = Math.min(parent.clientWidth, parent.clientHeight);
+    let canvas = s.createCanvas(sz, sz);
     canvas.parent(parent);
     s.angleMode(s.DEGREES);
     s.textAlign(s.CENTER);
